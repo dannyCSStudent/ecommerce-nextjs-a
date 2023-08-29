@@ -2,9 +2,11 @@ import React from 'react'
 import { FooterBanner, HeroBanner, Product } from '../components'
 import { client } from '../lib/client'
 const Home = ({products, bannerData}) => {
-  console.log('sas ', products)
+  
+
   return (
     <>
+      
         <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
 
         <div className='products-heading'>
@@ -13,9 +15,9 @@ const Home = ({products, bannerData}) => {
         </div>
 
         <div className='products-container'>
-            {products?.map((product) => product.name)}
+            {products?.map((product) => <Product key={product._id} product={product} />)}
         </div>
-        <FooterBanner />
+        <FooterBanner footerBanner={bannerData && bannerData[0]}/>
     </>
   )
 }
